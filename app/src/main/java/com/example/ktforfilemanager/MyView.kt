@@ -15,11 +15,15 @@ import android.view.ViewGroup
 import com.example.ktforfilemanager.defview.UpDownObject
 import com.example.ktforfilemanager.myview.MyViewDataClass
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 
 
 
-class MyView(context: Context, attrs: AttributeSet) : ViewGroup(context, attrs) {
+
+
+class
+MyView(context: Context, attrs: AttributeSet) : ViewGroup(context, attrs) {
 
     private val mPaint: Paint
     private var fallObjects: MutableList<MyViewDataClass>? = ArrayList()
@@ -30,9 +34,16 @@ class MyView(context: Context, attrs: AttributeSet) : ViewGroup(context, attrs) 
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        var widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        var heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        var widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        var heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
 
         val childView = getChildAt(0)
+        val lp = childView.layoutParams
         measureChild(childView, widthMeasureSpec, heightMeasureSpec)
+        setMeasuredDimension(widthMeasureSpec,heightMeasureSpec)
     }
 //
 //    override fun onLayout(p0: Boolean, p1: Int, p2: Int, p3: Int, p4: Int) {
@@ -58,18 +69,18 @@ class MyView(context: Context, attrs: AttributeSet) : ViewGroup(context, attrs) 
     }
     override fun onDraw(canvas: Canvas) {
         mPaint.setColor(Color.YELLOW)
-        canvas.drawRect(0F, 0F, width.toFloat() ,height.toFloat(), mPaint)
+//        canvas.drawRect(0F, 0F, width.toFloat() ,height.toFloat(), mPaint)
 //        mPaint.setColor(Color.BLUE)
 //        mPaint.setTextSize(100.0F)
 //        val text = "Hello View"
 //        canvas.drawText(text, 0F, height.toFloat()/2, mPaint)
 
 //        mPaint.setColor(Color.GREEN)
-        var child=childCount-1
-//        val childView = getChildAt(0)
-//        childView.layout(20, 20, childView.measuredWidth, childView.measuredHeight)
-        for (i in 0.. child){
-            canvas.drawRect(fallObjects!!.get(i).l,fallObjects!!.get(i).t,fallObjects!!.get(i).r,fallObjects!!.get(i).b,mPaint);
-        }
+//        var child=childCount-1
+////        val childView = getChildAt(0)
+////        childView.layout(20, 20, childView.measuredWidth, childView.measuredHeight)
+//        for (i in 0.. child){
+//            canvas.drawRect(fallObjects!!.get(i).l,fallObjects!!.get(i).t,fallObjects!!.get(i).r,fallObjects!!.get(i).b,mPaint);
+//        }
     }
 }

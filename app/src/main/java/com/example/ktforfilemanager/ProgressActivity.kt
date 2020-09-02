@@ -1,13 +1,14 @@
 package com.example.ktforfilemanager
 
-import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+
+
 import android.os.Handler
 import android.view.KeyEvent.ACTION_DOWN
 import android.view.MotionEvent
@@ -17,21 +18,85 @@ import android.view.MotionEvent.ACTION_POINTER_UP
 import android.view.View
 import android.widget.TextView
 
+
+import android.media.MediaPlayer
+import com.example.ktforfilemanager.waveview.WaveView
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
+
+import android.widget.ImageView
+import com.example.ktforfilemanager.ballview.BallView
 import com.example.ktforfilemanager.defview.UpDownObject
 import com.example.ktforfilemanager.defview.UpDownView
 
 
-
-
-
 class ProgressActivity : AppCompatActivity() {
-
+    private lateinit var head: ImageView
+    private lateinit var wave: WaveView
+    private lateinit var scaleAnimation: ScaleAnimation
+    private lateinit var mPlayer: MediaPlayer
     private lateinit var fallingView:View
     private lateinit var textView : TextView
     private  var timeSet =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.progress)
+
+        /*
+        * 按下去擴散
+        * */
+//        setContentView(R.layout.wave)
+
+//        scaleAnimation = ScaleAnimation(
+//            1.2f,
+//            1f,
+//            1.2f,
+//            1f,
+//            Animation.RELATIVE_TO_SELF,
+//            0.5f,
+//            Animation.RELATIVE_TO_SELF,
+//            0.5f
+//        )
+//        scaleAnimation.setDuration(500)
+//        scaleAnimation.setFillAfter(true)
+//        wave = findViewById<View>(R.id.wave) as WaveView
+//        head = findViewById<View>(R.id.head) as ImageView
+//        head.setOnClickListener(View.OnClickListener {
+//        wave.addWave()
+//        head.startAnimation(scaleAnimation)
+////        wave.start()
+////        wave.addWave()
+//
+////            if (mPlayer.isPlaying()) {
+////                mPlayer.stop()
+////                try {
+////                    mPlayer.prepare()
+////                } catch (e: IOException) {
+////                    e.printStackTrace()
+////                }
+////
+////            }
+////            mPlayer.start()
+//        })
+//        wave.start()
+
+
+        /*
+        * Ball
+        * */
+        setContentView(R.layout.ball)
+        var snowPaint = Paint()
+        snowPaint.setColor(Color.BLACK)
+        snowPaint.setStyle(Paint.Style.FILL)
+        var bitmap = Bitmap.createBitmap(50, 50, Bitmap.Config.ARGB_8888)
+        var bitmapCanvas = Canvas(bitmap)
+        bitmapCanvas.drawCircle(25F, 25F, 25F, snowPaint)
+
+
+        /*
+        *
+        * 米奇雨
+        * */
+//        setContentView(R.layout.updown)
 //
 //        var snowPaint = Paint()
 //        snowPaint.setColor(Color.BLACK)
@@ -40,7 +105,7 @@ class ProgressActivity : AppCompatActivity() {
 //        var bitmapCanvas = Canvas(bitmap)
 //        bitmapCanvas.drawCircle(25F, 25F, 25F, snowPaint)
 //
-////初始化一个雪球样式的fallObject
+//
 //        val builder = UpDownObject.Builder(resources.getDrawable(com.example.ktforfilemanager.R.drawable.ic_mickey))
 //       // val builder = UpDownObject.Builder(bitmap,10F)
 //        val fallObject = builder
@@ -59,17 +124,38 @@ class ProgressActivity : AppCompatActivity() {
 //            it.visibility=View.GONE
 //            goToThread()
 //        })
-//
 
 
 
        // showProgressDialog()
     }
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+//        wave.setImageRadius(head.width / 2)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        var x:Float
+        var y:Float
+        when(event!!.action){
+            MotionEvent.ACTION_DOWN -> {
+                 x = event.x.toFloat()
+                 y = event.y.toFloat()
+                wave.addMoreWave(x,y)
+            }
+//            MotionEvent.ACTION_MOVE ->{
+//                 x = event.x as Int
+//                 y = event.y as Int
+//            }
+
+
+        }
+        return true
+    }
 
     private fun  goToThread(){
         Thread{
             run{
-
                 timeSet++
             }
         }.start()

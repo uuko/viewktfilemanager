@@ -27,22 +27,22 @@
 <!--        android:layout_height="wrap_content" >-->
 <!--    </com.example.ktforfilemanager.TitleView>-->
 
-    <com.example.ktforfilemanager.CounterView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true" >
+<!--    <com.example.ktforfilemanager.CounterView-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_centerInParent="true" >-->
 
-    </com.example.ktforfilemanager.CounterView>
+<!--    </com.example.ktforfilemanager.CounterView>-->
 
     <com.example.ktforfilemanager.MyView
-
+        android:background="@color/colorPrimary"
         android:layout_width="200dp"
-        android:layout_height="300dp">
+        android:layout_height="200dp">
 
         <Button
-            android:text="ChildView"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+
+            android:layout_width="10dp"
+            android:layout_height="10dp"
             android:background="#333444"
             android:id="@+id/ChildView" />
     </com.example.ktforfilemanager.MyView>

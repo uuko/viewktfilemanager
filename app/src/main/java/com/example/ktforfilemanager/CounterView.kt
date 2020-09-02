@@ -21,27 +21,28 @@ class CounterView(context: Context, attrs: AttributeSet) : View(context, attrs),
 
     private val mPaint: Paint
 
-    private val mBounds: Rect
+    private val mRect: Rect
 
     private var mCount: Int = 0
+    private var  uuko:String="hello world"
 
 
     init {
         mPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        mBounds = Rect()
+        mRect = Rect()
         setOnClickListener(this)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        mPaint.setColor(Color.BLUE)
+        mPaint.setColor(Color.GREEN)
         canvas.drawRect(0F, 0F, width.toFloat(), height.toFloat(), mPaint)
         mPaint.setColor(Color.YELLOW)
-        mPaint.setTextSize(30F)
-        val text = mCount.toString()
-        mPaint.getTextBounds(text, 0, text.length, mBounds)
-        val textWidth = mBounds.width()
-        val textHeight = mBounds.height()
+        mPaint.setTextSize(40F)
+        val text = uuko
+        mPaint.getTextBounds(text, 0, text.length, mRect)
+        val textWidth = mRect.width()
+        val textHeight = mRect.height()
         canvas.drawText(
             text,
             (getWidth() / 2 - textWidth / 2).toFloat(),
@@ -52,6 +53,13 @@ class CounterView(context: Context, attrs: AttributeSet) : View(context, attrs),
 
     override fun onClick(v: View) {
         mCount++
+        if (mCount%2==1){
+            uuko="hello world"
+        }else{
+            uuko="goodNight world"
+        }
+
+
         invalidate()
     }
 
