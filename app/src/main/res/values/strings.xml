@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ktforfilemanager</string>
+    <string name="upload">upload</string>
 </resources>

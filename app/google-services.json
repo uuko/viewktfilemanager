@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "346666942976",
+    "firebase_url": "https://ktforfilemanager.firebaseio.com",
+    "project_id": "ktforfilemanager",
+    "storage_bucket": "ktforfilemanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346666942976:android:b9db912c8b52952c9ccee5",
+        "android_client_info": {
+          "package_name": "com.example.ktforfilemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346666942976-4raq9on00orcrs5blemk9c42feu7rm9u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ktforfilemanager",
+            "certificate_hash": "e50b47cb43eb1d2efbdc240ba58656134eac4641"
+          }
+        },
+        {
+          "client_id": "346666942976-59mnei9samd3tcababruij8hsnp7j56q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSs9qZ9IXdbXRVka81zyyLcnZwvJrnBLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346666942976-59mnei9samd3tcababruij8hsnp7j56q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

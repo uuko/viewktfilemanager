@@ -1,4 +1,4 @@
-package com.example.ktforfilemanager
+package com.example.ktforfilemanager.drivehelper
 
 import android.app.Activity
 import android.content.ClipData
@@ -7,12 +7,10 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.net.Uri
 import android.os.Build
 import android.util.Log
 import android.widget.Button
-import androidx.core.content.ContextCompat.getSystemService
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.Scope
@@ -21,17 +19,10 @@ import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccoun
 import com.google.api.client.json.gson.GsonFactory
 import com.google.api.services.drive.Drive
 import com.google.api.services.drive.DriveScopes
-import kotlinx.android.synthetic.main.activity_main.*
-import android.text.method.TextKeyListener.clear
 import android.widget.Toast
-import androidx.annotation.NonNull
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import android.app.ProgressDialog
+import com.example.ktforfilemanager.R
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.view.View
-import androidx.core.content.ContextCompat.getSystemService
 import java.util.ArrayList
 
 
@@ -175,7 +166,8 @@ class MainActivity : AppCompatActivity() {
                     .setApplicationName("AppName")
                     .build()
 
-                driveServiceHelper = DriveServiceHelper(googleDriveService)
+                driveServiceHelper =
+                    DriveServiceHelper(googleDriveService)
 
             }
             .addOnFailureListener { e -> e.printStackTrace() }

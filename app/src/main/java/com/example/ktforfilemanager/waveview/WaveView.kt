@@ -111,6 +111,12 @@ class WaveView(context: Context, attrs: AttributeSet) : View(context, attrs){
         mMoreRadius.add(0)
         mMoreXorY.add(WaveDataClass(x,y))
     }
+
+    fun clearWave(){
+        mMoreAlphas.clear()
+        mMoreRadius.clear()
+        mMoreXorY.clear()
+    }
     override fun onDraw(canvas: Canvas?) {
         mColorArray.add(R.color.holo_blue_light)
         mColorArray.add(R.color.holo_red_light)
@@ -140,7 +146,7 @@ class WaveView(context: Context, attrs: AttributeSet) : View(context, attrs){
             canvas!!.drawCircle(mMoreXorY[i].x.toFloat() , (mMoreXorY[i].y).toFloat(), (radius).toFloat(), mPaint)
 
             if (mAlpha > 0  && radius<mMaxRadius) {
-                mAlpha = (255.0f * (1.0f - ( radius) * 1.0f / mMaxRadius)).toFloat()
+                mAlpha = (255.0f * (1.0f - ( radius) * 2.0f / mMaxRadius)).toFloat()
                 mMoreAlphas[i] = mAlpha
                 mMoreRadius[i] = radius + 1
             } else if (mAlpha < 0 ) {

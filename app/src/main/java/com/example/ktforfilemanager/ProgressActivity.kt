@@ -28,6 +28,16 @@ import android.widget.ImageView
 import com.example.ktforfilemanager.ballview.BallView
 import com.example.ktforfilemanager.defview.UpDownObject
 import com.example.ktforfilemanager.defview.UpDownView
+import android.util.DisplayMetrics
+import android.widget.Button
+
+import com.example.ktforfilemanager.paintview.PaintView
+import android.widget.LinearLayout
+import androidx.core.app.ComponentActivity.ExtraData
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat.getSystemService
+import com.example.ktforfilemanager.paintview.PPView
 
 
 class ProgressActivity : AppCompatActivity() {
@@ -38,14 +48,43 @@ class ProgressActivity : AppCompatActivity() {
     private lateinit var fallingView:View
     private lateinit var textView : TextView
     private  var timeSet =0
+    private lateinit var  paintView: PPView
+    private val Pen = 1
+    private val Eraser = 2
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
+        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.custom_paint)
+//        paintView = findViewById(R.id.paintView)
+//
+//
+//        var eraser : Button=findViewById(R.id.eraser)
+//
+//        eraser.setOnClickListener({
+//            it->
+//            paintView.paint.setColor(Color.WHITE);
+//        })
+
+//        var button : Button=findViewById(R.id.eraser)
+//        val metrics = DisplayMetrics()
+//        windowManager.defaultDisplay.getMetrics(metrics)
+//        paintView.init(metrics)
+//        button.setOnClickListener { it->paintView.eraser()}
+        /*
+        * ProgressView
+        * */
+//        setContentView(R.layout.progress)
+//         showProgressDialog()
+
+        /*
+        * def View test
+        * */
+//        setContentView(R.layout.progress)
         /*
         * 按下去擴散
         * */
 //        setContentView(R.layout.wave)
-
+//
 //        scaleAnimation = ScaleAnimation(
 //            1.2f,
 //            1f,
@@ -106,7 +145,7 @@ class ProgressActivity : AppCompatActivity() {
 //        bitmapCanvas.drawCircle(25F, 25F, 25F, snowPaint)
 //
 //
-//        val builder = UpDownObject.Builder(resources.getDrawable(com.example.ktforfilemanager.R.drawable.ic_mickey))
+//        val builder = UpDownObject.Builder(resources.getDrawable(R.drawable.ic_mickey))
 //       // val builder = UpDownObject.Builder(bitmap,10F)
 //        val fallObject = builder
 //            .setSpeed(10,true)
@@ -127,7 +166,7 @@ class ProgressActivity : AppCompatActivity() {
 
 
 
-       // showProgressDialog()
+
     }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
@@ -137,20 +176,34 @@ class ProgressActivity : AppCompatActivity() {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         var x:Float
         var y:Float
-        when(event!!.action){
-            MotionEvent.ACTION_DOWN -> {
-                 x = event.x.toFloat()
-                 y = event.y.toFloat()
-                wave.addMoreWave(x,y)
-            }
-//            MotionEvent.ACTION_MOVE ->{
-//                 x = event.x as Int
-//                 y = event.y as Int
-//            }
-
-
+        if ((event!!.action== MotionEvent.ACTION_DOWN) || (event!!.action== MotionEvent.ACTION_MOVE) ){
+            x = event.x.toFloat()
+            y = event.y.toFloat()
+            wave.addMoreWave(x,y)
         }
-        return true
+
+//
+//        else{
+//
+//            when(event!!.action){
+//
+//                MotionEvent.ACTION_DOWN -> {
+//                    x = event.x.toFloat()
+//                    y = event.y.toFloat()
+//                    wave.addMoreWave(x,y)
+//                }
+//                MotionEvent.ACTION_MOVE ->{
+//
+//                    x = event.x
+//                    y = event.y
+//                    wave.addMoreWave(x,y)
+//                }
+//
+         return true
+
+
+
+
     }
 
     private fun  goToThread(){
@@ -191,12 +244,10 @@ class ProgressActivity : AppCompatActivity() {
     }
     private fun showProgressDialog() {
         val builder = AlertDialog.Builder(this)
-        // Get the layout inflater
+
         val inflater = this.getLayoutInflater()
 
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(com.example.ktforfilemanager.R.layout.dialog_signin, null))
+        builder.setView(inflater.inflate(R.layout.dialog_signin, null))
 
         builder.create()
 

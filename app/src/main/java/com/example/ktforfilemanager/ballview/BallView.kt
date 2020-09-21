@@ -39,6 +39,7 @@ class BallView : View {
     private lateinit var mAttr: AttributeSet
 
 
+
     constructor(context: Context,@Nullable attr :AttributeSet) : super(context,attr){
         mContext=context
         mAttr=attr

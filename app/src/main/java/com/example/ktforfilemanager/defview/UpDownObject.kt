@@ -16,7 +16,7 @@ class UpDownObject {
     //  init view
     private  var initX : Int=0
     private  var initY : Int=0
-
+    private lateinit var one: Integer
     private lateinit var random: Random
     private  var parentWidth : Int=0
     private  var parentHeight : Int=0

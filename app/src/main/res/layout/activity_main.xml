@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".drivehelper.MainActivity">
+
 
     <Button
         android:id="@+id/btnUplodFile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="uploadFile"
-        android:text="UPLOAD"
+        android:text="@string/upload"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -1,4 +1,4 @@
-package com.example.ktforfilemanager
+package com.example.ktforfilemanager.drivehelper
 
 import android.content.ContentResolver
 import android.content.ContentUris
@@ -56,7 +56,12 @@ object FileUtil {
                             Uri.parse(contentUriPrefix),
                             java.lang.Long.valueOf(id)
                         )
-                        val path = getDataColumn(context, contentUri, null, null)
+                        val path = getDataColumn(
+                            context,
+                            contentUri,
+                            null,
+                            null
+                        )
                         if (path != null) {
                             return path
                         }
@@ -65,7 +70,12 @@ object FileUtil {
 
                 }
                 try {
-                    val path = getDataColumn(context, uri, null, null)
+                    val path = getDataColumn(
+                        context,
+                        uri,
+                        null,
+                        null
+                    )
                     if (path != null) {
                         return path
                     }
@@ -89,14 +99,24 @@ object FileUtil {
                 }
                 val selection = MediaStore.MediaColumns._ID + "=?"
                 val selectionArgs = arrayOf(split[1])
-                return getDataColumn(context, contentUri, selection, selectionArgs)
+                return getDataColumn(
+                    context,
+                    contentUri,
+                    selection,
+                    selectionArgs
+                )
             }
         } else if (ContentResolver.SCHEME_CONTENT.equals(uri.scheme!!, ignoreCase = true)) {
             // MediaStore (and general)
             // Return the remote address
             return if (isGooglePhotosUri(uri)) {
                 uri.lastPathSegment
-            } else getDataColumn(context, uri, null, null)
+            } else getDataColumn(
+                context,
+                uri,
+                null,
+                null
+            )
         } else if (ContentResolver.SCHEME_FILE.equals(uri.scheme!!, ignoreCase = true)) {
             // File
             return uri.path
