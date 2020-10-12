@@ -18,19 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.custom"
         android:usesCleartextTraffic="true">
-        <activity android:name=".chooseview.PickerPhotoActivity">
-
-        </activity>
+        <activity android:name=".activities.BroadcastActivity"></activity>
+        <activity android:name=".chooseview.PickerPhotoActivity" />
         <activity android:name=".bigphoto.BigPhotoActivity" />
-        <activity android:name=".paintphoto.PainterPhotoActivity">
+        <activity android:name=".paintphoto.PainterPhotoActivity" />
+        <activity android:name=".transition.Transition2Activity" />
+        <activity android:name=".transition.Transition1Activity" />
+        <activity android:name=".ProgressActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".transition.Transition2Activity" />
-        <activity android:name=".transition.Transition1Activity" />
-        <activity android:name=".ProgressActivity" />
         <activity android:name=".drivehelper.MainActivity" />
     </application>
 

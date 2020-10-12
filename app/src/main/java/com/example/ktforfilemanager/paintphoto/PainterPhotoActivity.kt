@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.crashlytics.android.Crashlytics
 import com.example.ktforfilemanager.R
 import com.example.ktforfilemanager.base.pojo.UrLAndFilenameResponse
 import com.google.firebase.analytics.FirebaseAnalytics

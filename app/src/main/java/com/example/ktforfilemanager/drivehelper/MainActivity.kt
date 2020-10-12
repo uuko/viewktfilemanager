@@ -63,15 +63,15 @@ class MainActivity : AppCompatActivity() {
 
             for (i in 0 until j) {
                 //        driveServiceHelper.fileName(fileName.get(i));
-                driveServiceHelper?.createFile(filepa.get(i), fileName.get(i))
-                    ?.addOnSuccessListener {
+                driveServiceHelper!!.createFile(filepa.get(i), fileName.get(i))
+                    .addOnSuccessListener {
                         progressDialog.dismiss()
                         Toast.makeText(
                             applicationContext,
                             "Uploaded successfully",
                             Toast.LENGTH_LONG
                         ).show()
-                    }?.addOnFailureListener { e ->
+                    }.addOnFailureListener { e ->
                         progressDialog.dismiss()
                         Toast.makeText(
                             applicationContext,

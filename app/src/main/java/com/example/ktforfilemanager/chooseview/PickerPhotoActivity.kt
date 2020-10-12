@@ -30,6 +30,7 @@ import java.lang.Exception
 import android.R.string.cancel
 import android.app.ProgressDialog
 import android.content.Context
+import com.example.ktforfilemanager.paintphoto.PainterPhotoActivity
 
 
 class PickerPhotoActivity : AppCompatActivity() {
@@ -38,6 +39,7 @@ class PickerPhotoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_picker_photo)
         var btn2=findViewById<Button>(R.id.btn2)
+        var btn3=findViewById<Button>(R.id.btn3)
         btn2.setOnClickListener {
             val intent = Intent()
             /* 開啟Pictures畫面Type設定為image */
@@ -46,6 +48,11 @@ class PickerPhotoActivity : AppCompatActivity() {
             intent.action = Intent.ACTION_GET_CONTENT
             /* 取得相片後返回本畫面 */
             startActivityForResult(intent, 1)
+        }
+
+        btn3.setOnClickListener {
+            var intent=Intent(this,PainterPhotoActivity::class.java)
+            startActivity(intent)
         }
     }
 
